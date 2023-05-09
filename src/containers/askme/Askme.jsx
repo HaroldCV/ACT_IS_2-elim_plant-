@@ -98,19 +98,19 @@ const Askme = () => {
             <div className=" mb-3">
               <DropdownButton title="Selecciona un tipo de pregunta" variant="outline-secondary">
                 <Dropdown.Item onClick={() => handleTypeSelection("¿Qué es?")}>
-                  ¿Qué es?
+                  La banca móvil del BCP es mala 
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => handleTypeSelection("¿Cómo se hace?")}>
-                  ¿Cómo se hace?
+                  La google plastores no sirve 
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => handleTypeSelection("¿Por qué?")}>
-                  ¿Por qué?
+                  No tiene nada de amigable tinder 
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => handleTypeSelection("¿Cuándo?")}>
-                  ¿Cuándo?
+                  Es malisima la app de Movistar
                 </Dropdown.Item>
                 <Dropdown.Item onClick={() => handleTypeSelection("¿Dónde?")}>
-                  ¿Dónde?
+                  La app de canvas es excelente 
                 </Dropdown.Item>
               </DropdownButton>
             </div>
