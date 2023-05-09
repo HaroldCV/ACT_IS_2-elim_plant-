@@ -14,24 +14,24 @@ const Askme = () => {
   const inputRef = useRef(null);
 
   const handleQuestionSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading(true); // set isLoading to true when waiting for response
-    setResponseText(''); // reset responseText state
-    setQuestion(''); // reset question state
-    const response = await fetch(API_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${API_KEY}`
-      },
-      body: JSON.stringify({
-        prompt: `Pregunta: ${question}\nRespuesta:`,
-        max_tokens: 100,
-        temperature: 0.5,
-        n: 1,
-        stop: '\n',
-      })
-    });
+  event.preventDefault();
+  setIsLoading(true); // set isLoading to true when waiting for response
+  setResponseText(''); // reset responseText state
+  setQuestion(''); // reset question state
+  const response = await fetch(API_ENDPOINT, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${API_KEY}`
+    },
+    body: JSON.stringify({
+      prompt: `Pregunta: ${question}\nRespuesta:`,
+      max_tokens: 100,
+      temperature: 0.5,
+      n: 1,
+      stop: '\n',
+    })
+  });
     const data = await response.json();
     console.log(data);
     if (data.choices && data.choices.length > 0) {
@@ -61,7 +61,7 @@ const Askme = () => {
   return (
     <div className="container-fluid">
       <div className="header_gr_text">
-      <h1 className="gradient__text" style={{ fontSize: "100px"}}>
+      <h1 className="gradient__text">
         AI CUSTOMER SERVICE
       </h1> 
       </div>
@@ -145,6 +145,7 @@ const Askme = () => {
       </div>
     </div>
   );
+  
 };
 
 export default Askme;
