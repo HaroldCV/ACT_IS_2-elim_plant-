@@ -96,7 +96,7 @@ const Askme = () => {
           </div>
           {showAdditionalFields && (
             <div className=" mb-3">
-              <DropdownButton title="Selecciona un tipo de pregunta" variant="outline-secondary">
+              <DropdownButton title="Selecciona un tipo de comentario" variant="outline-secondary">
                 <Dropdown.Item onClick={() => handleTypeSelection("¿Qué es?")}>
                   La banca móvil del BCP es mala 
                 </Dropdown.Item>
