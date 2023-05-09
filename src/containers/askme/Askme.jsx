@@ -97,35 +97,36 @@ const Askme = () => {
           {showAdditionalFields && (
             <div className=" mb-3">
               <DropdownButton title="Selecciona un tipo de comentario" variant="outline-secondary">
-                <Dropdown.Item onClick={() => handleTypeSelection("¿Qué es?")}>
+                <Dropdown.Item onClick={() => handleTypeSelection("La banca móvil del BCP es mala")}>
                   La banca móvil del BCP es mala 
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleTypeSelection("¿Cómo se hace?")}>
+                <Dropdown.Item onClick={() => handleTypeSelection("La google plastores no sirve")}>
                   La google plastores no sirve 
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleTypeSelection("¿Por qué?")}>
+                <Dropdown.Item onClick={() => handleTypeSelection("No tiene nada de amigable tinder")}>
                   No tiene nada de amigable tinder 
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleTypeSelection("¿Cuándo?")}>
+                <Dropdown.Item onClick={() => handleTypeSelection("Es malisima la app de Movistar")}>
                   Es malisima la app de Movistar
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleTypeSelection("¿Dónde?")}>
+                <Dropdown.Item onClick={() => handleTypeSelection("La app de canvas es excelente ")}>
                   La app de canvas es excelente 
                 </Dropdown.Item>
               </DropdownButton>
             </div>
           )}
           {isLoading ? (
-            <div className="progress mb-3">
-              <div
-                className="progress-bar progress-bar-striped progress-bar-animated"
-                role="progressbar"
-                aria-valuenow="100"
-                aria-valuemin="0"
-                aria-valuemax="100"
-                style={{ width: "100%" }}
-              ></div>
+            <div className="progress mb-3 btn-outline-secondary">
+                <div
+                  className="progress-bar progress-bar-striped progress-bar-animated"
+                  role="progressbar"
+                  aria-valuenow="100"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                  style={{ width: "100%" }}
+                ></div>
             </div>
+          
           ) : (
             <div className="card mb-3">
               <div className="card-body">
