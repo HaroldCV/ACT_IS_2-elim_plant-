@@ -17,6 +17,7 @@ const Askme = () => {
     event.preventDefault();
     setIsLoading(true); // set isLoading to true when waiting for response
     setResponseText(''); // reset responseText state
+    setQuestion(''); // reset question state
     const response = await fetch(API_ENDPOINT, {
       method: 'POST',
       headers: {
@@ -56,10 +57,6 @@ const Askme = () => {
     inputRef.current.focus();
   };
 
-
-  <div className="gpt3__footer-heading">
-      <h1 className="gradient__text">Do you want to step in to the future before others</h1>
-    </div>
   
   return (
     <div className="container-fluid">
@@ -148,14 +145,6 @@ const Askme = () => {
       </div>
     </div>
   );
-  
-  
-  
-  
-  
-  
-  
-    
 };
 
 export default Askme;
