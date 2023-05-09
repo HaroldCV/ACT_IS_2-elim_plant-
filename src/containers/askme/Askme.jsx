@@ -88,15 +88,15 @@ const Askme = () => {
           </form>
           <div className="mb-3">
             <button
-              className="btn btn-primary"
+              className="btn btn-outline-secondary"
               onClick={() => setShowAdditionalFields(!showAdditionalFields)}
             >
               Tipo
             </button>
           </div>
           {showAdditionalFields && (
-            <div className="mb-3">
-              <DropdownButton title="Selecciona un tipo de pregunta">
+            <div className=" mb-3">
+              <DropdownButton title="Selecciona un tipo de pregunta" variant="outline-secondary">
                 <Dropdown.Item onClick={() => handleTypeSelection("¿Qué es?")}>
                   ¿Qué es?
                 </Dropdown.Item>
@@ -145,7 +145,8 @@ const Askme = () => {
       </div>
     </div>
   );
-  
+
+    
 };
 
 export default Askme;
