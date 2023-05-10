@@ -1,13 +1,54 @@
 .header_gr_text {
     width: 100%;
     text-align: center;
-
     margin-bottom: 3rem;
 }
 
 .header_gr_text h1 {
     font-family: var(--font-family);
-    font-weight: 800;
+    font-weight: 1000;
     font-size: 64px;
     line-height: 75px;
 }
+
+.boton_p1{
+    border: 0;
+    background-image: linear-gradient(
+     150deg,
+     #AE67FA,
+     #F49867
+    );
+    border-radius: 8px; 
+    color:#fff;
+    display:flex;
+    font-size: 18px;
+    padding: 4px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.boton_p1 span{
+    background-color: #111;
+    padding: 14px 20px;
+    border-radius:6px;
+    transition: .3s;
+}
+
+.boton_p1:hover span{
+    background: none;
+}
+
+.boton_p1:active{
+    transform: scale(0.9);
+}
+
+
+
+@media screen and (max-width: 850px) {
+    .header_gr_text h1 {
+        font-size: 44px;
+        line-height: 50px;
+    }
+}
+
+
