@@ -56,6 +56,9 @@ const Askme = () => {
     setQuestion(text);
     inputRef.current.focus();
   };
+  //<button className="btn btn-outline-secondary" type="submit">
+  //Preguntar
+  //</button>
 
   
   return (
@@ -79,19 +82,20 @@ const Askme = () => {
                 onChange={handleQuestionChange}
                 ref={inputRef}
               />
+              
               <div className="input-group-append">
-                <button className="btn btn-outline-secondary" type="submit">
-                  Preguntar
+                <button className="boton_p1" type="submit">
+                  <span>Preguntar</span>
                 </button>
               </div>
             </div>
           </form>
           <div className="mb-3">
             <button
-              className="btn btn-outline-secondary"
+              className="boton_p1"
               onClick={() => setShowAdditionalFields(!showAdditionalFields)}
             >
-              Tipo
+              <span>Tipo</span>
             </button>
           </div>
           {showAdditionalFields && (
