@@ -9,7 +9,7 @@ const Askme = () => {
   const [question, setQuestion] = useState('');
   const [responseText, setResponseText] = useState('');
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
-  const [app, setApp] = useState('');
+  const [app, setApp] = useState("Seleccionar una opción");
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef(null);
 
@@ -90,7 +90,7 @@ const Askme = () => {
           </div>
           {showAdditionalFields && (
             <div className=" mb-3">
-              <DropdownButton title="Select the app" variant="outline-secondary">
+              <DropdownButton title={app} variant="outline-secondary">
                 <Dropdown.Item onClick={() => handleTypeSelection("BetterSleep")}>
                   BetterSleep 
                 </Dropdown.Item>
