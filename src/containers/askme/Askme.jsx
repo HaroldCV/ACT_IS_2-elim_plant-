@@ -4,12 +4,12 @@ import { Dropdown, DropdownButton } from 'react-bootstrap';
 import './askme.css';
 
 
-const API_ENDPOINT = 'https://api.openai.com/v1/engines/davinci-codex/completions';
-const API_KEY = "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";
+const API_ENDPOINT = 'https://analysis-result.azurewebsites.net/chat';
 const Askme = () => {
   const [question, setQuestion] = useState('');
   const [responseText, setResponseText] = useState('');
   const [showAdditionalFields, setShowAdditionalFields] = useState(false);
+  const [app, setApp] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const inputRef = useRef(null);
 
@@ -22,26 +22,16 @@ const Askme = () => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Authorization': `Bearer ${API_KEY}`
     },
     body: JSON.stringify({
-      prompt: `Pregunta: ${question}\nRespuesta:`,
-      max_tokens: 100,
-      temperature: 0.5,
-      n: 1,
-      stop: '\n',
+        app: `${app}`,
+        message: `${question}`
     })
-  });
-    const data = await response.json();
-    console.log(data);
-    if (data.choices && data.choices.length > 0) {
-      console.log(data.choices[0].text);
-      setResponseText(data.choices[0].text);
-    } else {
-      console.log('No se encontró respuesta para esta pregunta');
-      setResponseText('Lo siento, no puedo responder esa pregunta');
-    }
-    setIsLoading(false); // set isLoading to false when response is received
+  })
+  .then(response => response.text())
+  .then(data => setResponseText(data));
+
+  setIsLoading(false); // set isLoading to false when response is received
   };
 
   const handleQuestionChange = (event) => {
@@ -52,8 +42,8 @@ const Askme = () => {
     setResponseText(event.target.value);
   };
 
-  const handleTypeSelection = (text) => {
-    setQuestion(text);
+  const handleTypeSelection = (app) => {
+    setApp(app);
     inputRef.current.focus();
   };
   //<button className="btn btn-outline-secondary" type="submit">
@@ -95,26 +85,26 @@ const Askme = () => {
               className="boton_p1"
               onClick={() => setShowAdditionalFields(!showAdditionalFields)}
             >
-              <span>Tipo</span>
+              <span>App</span>
             </button>
           </div>
           {showAdditionalFields && (
             <div className=" mb-3">
-              <DropdownButton title="Selecciona un tipo de comentario" variant="outline-secondary">
-                <Dropdown.Item onClick={() => handleTypeSelection("La banca móvil del BCP es mala")}>
-                  La banca móvil del BCP es mala 
+              <DropdownButton title="Select the app" variant="outline-secondary">
+                <Dropdown.Item onClick={() => handleTypeSelection("BetterSleep")}>
+                  BetterSleep 
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleTypeSelection("La google plastores no sirve")}>
-                  La google plastores no sirve 
+                <Dropdown.Item onClick={() => handleTypeSelection("Calm")}>
+                  Calm 
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleTypeSelection("No tiene nada de amigable tinder")}>
-                  No tiene nada de amigable tinder 
+                <Dropdown.Item onClick={() => handleTypeSelection("Tinder")}>
+                  Tinder 
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleTypeSelection("Es malisima la app de Movistar")}>
-                  Es malisima la app de Movistar
+                <Dropdown.Item onClick={() => handleTypeSelection("BBVA")}>
+                  BBVA
                 </Dropdown.Item>
-                <Dropdown.Item onClick={() => handleTypeSelection("La app de canvas es excelente ")}>
-                  La app de canvas es excelente 
+                <Dropdown.Item onClick={() => handleTypeSelection("BCP")}>
+                  BCP 
                 </Dropdown.Item>
               </DropdownButton>
             </div>
